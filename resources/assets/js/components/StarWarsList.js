@@ -35,28 +35,6 @@ export default class StarWarsList extends Component {
                 }
                 )
     }
-    
-        fetchNextPage(next) {
-        fetch(next)
-                .then(res => {
-                    return res.json();
-                })
-                .then(
-                        (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        results: result.results,
-                        params: result
-                    });
-                },
-                        (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-                )
-    }
 
     render() {
 
@@ -105,14 +83,6 @@ export default class StarWarsList extends Component {
                                             {results.map(item => (
                                                         <Character result={ item } />
                                                                 ))}
-                    
-                                        {/* 
-                                         <ul>
-                                         <li>
-                                         { this.state.params.next }
-                                         </li>
-                                         </ul>
-                                         */} 
                                         </tbody>
                                     </table>
                                 </div>
