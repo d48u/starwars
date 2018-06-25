@@ -17,10 +17,6 @@
         
         </div>
         
-<!--        <div id="starwarscharacter"> 
-        
-        </div>-->
-        
         <script type="text/javascript" src="/js/app.js"></script>
 
         
