@@ -15,15 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('people', function () {
-    return view('people', [
-        
-        'name' => 'people'
-        
-    ]);
-});
-
 Route::get('/starwars', function() {
 
     return view('starwars');
