@@ -8,14 +8,13 @@ export default class StarWarsList extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            results: [],
-            params: null
+            results: []
 
         }
     }
-
-    componentDidMount() {
-        fetch('https://swapi.co/api/people')
+    
+        componentDidMount() {
+        fetch('https://starwars.dev/json')
                 .then(res => {
                     return res.json();
                 })
@@ -23,8 +22,7 @@ export default class StarWarsList extends Component {
                         (result) => {
                     this.setState({
                         isLoaded: true,
-                        results: result.results,
-                        params: result
+                        results: result.results
                     });
                 },
                         (error) => {
@@ -38,7 +36,7 @@ export default class StarWarsList extends Component {
 
     render() {
 
-        const {error, isLoaded, results, params} = this.state;
+        const {error, isLoaded, results} = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -81,7 +79,7 @@ export default class StarWarsList extends Component {
                                         <tbody>
                     
                                             {results.map(item => (
-                                                        <Character result={ item } />
+                                                        <Character result={ item } />                                          
                                                                 ))}
                                         </tbody>
                                     </table>
